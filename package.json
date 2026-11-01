@@ -1,0 +1,82 @@
+{
+  "name": "tr-toolkit",
+  "version": "0.1.0",
+  "description": "Turkish validation and locale helpers: VKN, TCKN and IBAN checks, correct i/ı casing, search folding, collation and the 81 provinces. Zero dependencies.",
+  "keywords": [
+    "turkish",
+    "turkey",
+    "turkiye",
+    "tckn",
+    "vkn",
+    "iban",
+    "validation",
+    "locale",
+    "collation",
+    "provinces"
+  ],
+  "license": "MIT",
+  "author": "Enes Kartal",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./validation": {
+      "import": {
+        "types": "./dist/validation.d.ts",
+        "default": "./dist/validation.js"
+      },
+      "require": {
+        "types": "./dist/validation.d.cts",
+        "default": "./dist/validation.cjs"
+      }
+    },
+    "./text": {
+      "import": {
+        "types": "./dist/text.d.ts",
+        "default": "./dist/text.js"
+      },
+      "require": {
+        "types": "./dist/text.d.cts",
+        "default": "./dist/text.cjs"
+      }
+    },
+    "./provinces": {
+      "import": {
+        "types": "./dist/provinces.d.ts",
+        "default": "./dist/provinces.js"
+      },
+      "require": {
+        "types": "./dist/provinces.d.cts",
+        "default": "./dist/provinces.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "tsup": "^9.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.5"
+  }
+}
