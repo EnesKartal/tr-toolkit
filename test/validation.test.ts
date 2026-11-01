@@ -115,8 +115,12 @@ describe('isValidTckn', () => {
 describe('isValidTrIban', () => {
   const EXAMPLE = 'TR330006100519786457841326';
 
-  it('accepts the example from the SWIFT IBAN registry', () => {
+  it('accepts an example IBAN that python-stdnum also accepts', () => {
     expect(isValidTrIban(EXAMPLE)).toBe(true);
+  });
+
+  it('accepts the Turkish example published at iban.com/structure', () => {
+    expect(isValidTrIban('TR190006200009112345678901')).toBe(true);
   });
 
   it('accepts generated values, including letters in the account field', () => {
