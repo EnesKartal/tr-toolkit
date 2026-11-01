@@ -78,5 +78,13 @@
     "tsup": "^9.0.0",
     "typescript": "^6.0.3",
     "vitest": "^5.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnesKartal/tr-toolkit.git"
+  },
+  "homepage": "https://github.com/EnesKartal/tr-toolkit#readme",
+  "bugs": {
+    "url": "https://github.com/EnesKartal/tr-toolkit/issues"
   }
 }
