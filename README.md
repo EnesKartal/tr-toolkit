@@ -1,4 +1,4 @@
-# tr-toolkit
+# @eneskartal/tr-toolkit
 
 Turkish validation and locale helpers for TypeScript and JavaScript.
 
@@ -14,16 +14,16 @@ No runtime dependencies. Ships ESM, CommonJS and TypeScript types.
 ## Install
 
 ```sh
-npm install tr-toolkit
+npm install @eneskartal/tr-toolkit
 ```
 
-Import from the package root, or from a subpath (`tr-toolkit/validation`, `tr-toolkit/text`,
-`tr-toolkit/provinces`) to load only that part. Both forms work with `import` and `require`.
+Import from the package root, or from a subpath (`@eneskartal/tr-toolkit/validation`, `@eneskartal/tr-toolkit/text`,
+`@eneskartal/tr-toolkit/provinces`) to load only that part. Both forms work with `import` and `require`.
 
 ## Validation
 
 ```ts
-import { isValidVkn, isValidTckn, isValidTrIban } from 'tr-toolkit';
+import { isValidVkn, isValidTckn, isValidTrIban } from '@eneskartal/tr-toolkit';
 
 isValidVkn('1234567890'); // true
 isValidVkn('1234567891'); // false: wrong check digit
@@ -52,7 +52,7 @@ passed is safe to store. For the IDs, call `.trim()` first if you want to tolera
 whitespace. For IBANs, use `normalizeTrIban`:
 
 ```ts
-import { formatTrIban, isValidTrIban, normalizeTrIban } from 'tr-toolkit';
+import { formatTrIban, isValidTrIban, normalizeTrIban } from '@eneskartal/tr-toolkit';
 
 const iban = normalizeTrIban(' tr33 0006 1005 1978 6457 8413 26 ');
 iban; // 'TR330006100519786457841326'
@@ -73,7 +73,7 @@ but can never be produced by the ISO 7064 algorithm.
 JavaScript's default `toUpperCase` and `toLowerCase` get Turkish wrong:
 
 ```ts
-import { trLowerCase, trTitleCase, trUpperCase } from 'tr-toolkit';
+import { trLowerCase, trTitleCase, trUpperCase } from '@eneskartal/tr-toolkit';
 
 'istanbul'.toUpperCase(); // 'ISTANBUL', should be 'İSTANBUL'
 trUpperCase('istanbul'); // 'İSTANBUL'
@@ -93,7 +93,7 @@ word and apostrophes do not.
 ## Search
 
 ```ts
-import { trIncludes, trNormalizeForSearch } from 'tr-toolkit';
+import { trIncludes, trNormalizeForSearch } from '@eneskartal/tr-toolkit';
 
 trNormalizeForSearch('  IŞIK  Çağrı '); // 'isik cagri'
 
@@ -108,7 +108,7 @@ display text. As with `String.prototype.includes`, an empty query matches everyt
 ## Sorting
 
 ```ts
-import { trCompare } from 'tr-toolkit';
+import { trCompare } from '@eneskartal/tr-toolkit';
 
 ['Zonguldak', 'Çorum', 'Şırnak', 'İzmir', 'Iğdır'].sort(trCompare);
 // ['Çorum', 'Iğdır', 'İzmir', 'Şırnak', 'Zonguldak']
@@ -123,7 +123,7 @@ All casing, search and sorting helpers throw a `TypeError` on non-strings.
 ## Provinces
 
 ```ts
-import { getProvinceByName, getProvinceByPlateCode, provinces } from 'tr-toolkit';
+import { getProvinceByName, getProvinceByPlateCode, provinces } from '@eneskartal/tr-toolkit';
 
 provinces.length; // 81
 provinces[0]; // { plateCode: '01', name: 'Adana' }
@@ -142,20 +142,20 @@ District (ilçe) data is not included. See the roadmap.
 
 | Export | Subpath | Signature |
 |---|---|---|
-| `isValidVkn` | `tr-toolkit/validation` | `(value: unknown) => boolean` |
-| `isValidTckn` | `tr-toolkit/validation` | `(value: unknown) => boolean` |
-| `isValidTrIban` | `tr-toolkit/validation` | `(value: unknown) => boolean` |
-| `normalizeTrIban` | `tr-toolkit/validation` | `(value: string) => string` |
-| `formatTrIban` | `tr-toolkit/validation` | `(value: string) => string` |
-| `trUpperCase` | `tr-toolkit/text` | `(value: string) => string` |
-| `trLowerCase` | `tr-toolkit/text` | `(value: string) => string` |
-| `trTitleCase` | `tr-toolkit/text` | `(value: string) => string` |
-| `trNormalizeForSearch` | `tr-toolkit/text` | `(value: string) => string` |
-| `trIncludes` | `tr-toolkit/text` | `(text: string, query: string) => boolean` |
-| `trCompare` | `tr-toolkit/text` | `(a: string, b: string) => number` |
-| `provinces` | `tr-toolkit/provinces` | `readonly Province[]` |
-| `getProvinceByPlateCode` | `tr-toolkit/provinces` | `(code: string \| number) => Province \| undefined` |
-| `getProvinceByName` | `tr-toolkit/provinces` | `(name: string) => Province \| undefined` |
+| `isValidVkn` | `@eneskartal/tr-toolkit/validation` | `(value: unknown) => boolean` |
+| `isValidTckn` | `@eneskartal/tr-toolkit/validation` | `(value: unknown) => boolean` |
+| `isValidTrIban` | `@eneskartal/tr-toolkit/validation` | `(value: unknown) => boolean` |
+| `normalizeTrIban` | `@eneskartal/tr-toolkit/validation` | `(value: string) => string` |
+| `formatTrIban` | `@eneskartal/tr-toolkit/validation` | `(value: string) => string` |
+| `trUpperCase` | `@eneskartal/tr-toolkit/text` | `(value: string) => string` |
+| `trLowerCase` | `@eneskartal/tr-toolkit/text` | `(value: string) => string` |
+| `trTitleCase` | `@eneskartal/tr-toolkit/text` | `(value: string) => string` |
+| `trNormalizeForSearch` | `@eneskartal/tr-toolkit/text` | `(value: string) => string` |
+| `trIncludes` | `@eneskartal/tr-toolkit/text` | `(text: string, query: string) => boolean` |
+| `trCompare` | `@eneskartal/tr-toolkit/text` | `(a: string, b: string) => number` |
+| `provinces` | `@eneskartal/tr-toolkit/provinces` | `readonly Province[]` |
+| `getProvinceByPlateCode` | `@eneskartal/tr-toolkit/provinces` | `(code: string \| number) => Province \| undefined` |
+| `getProvinceByName` | `@eneskartal/tr-toolkit/provinces` | `(name: string) => Province \| undefined` |
 
 ## Roadmap
 
@@ -173,7 +173,7 @@ Tested on Node.js 22, 24 and 26. The code targets ES2020.
 
 ## Türkçe özet
 
-`tr-toolkit`, Türkiye'ye özgü doğrulama ve yerel ayar yardımcıları sunan, bağımlılığı olmayan bir
+`@eneskartal/tr-toolkit`, Türkiye'ye özgü doğrulama ve yerel ayar yardımcıları sunan, bağımlılığı olmayan bir
 TypeScript/JavaScript paketidir.
 
 - **Doğrulama:** `isValidVkn`, `isValidTckn`, `isValidTrIban`. Yalnız biçimi ve sağlama basamağını
@@ -185,7 +185,7 @@ TypeScript/JavaScript paketidir.
 - **İller:** `provinces`, `getProvinceByPlateCode`, `getProvinceByName` (81 il, plaka kodlarıyla).
 
 ```ts
-import { isValidTrIban, normalizeTrIban, trIncludes, trUpperCase } from 'tr-toolkit';
+import { isValidTrIban, normalizeTrIban, trIncludes, trUpperCase } from '@eneskartal/tr-toolkit';
 
 trUpperCase('istanbul'); // 'İSTANBUL'
 trIncludes('Üsküdar, İSTANBUL', 'uskudar'); // true

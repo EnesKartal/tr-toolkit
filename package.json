@@ -1,5 +1,5 @@
 {
-  "name": "tr-toolkit",
+  "name": "@eneskartal/tr-toolkit",
   "version": "0.1.0",
   "description": "Turkish validation and locale helpers: VKN, TCKN and IBAN checks, correct i/ı casing, search folding, collation and the 81 provinces. Zero dependencies.",
   "keywords": [
@@ -86,5 +86,8 @@
   "homepage": "https://github.com/EnesKartal/tr-toolkit#readme",
   "bugs": {
     "url": "https://github.com/EnesKartal/tr-toolkit/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
